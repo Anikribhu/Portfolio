@@ -12,7 +12,7 @@ const Home = () => {
     const jobArray = ['w','e','b',' ','d','e','v','e','l','o','p','e','r']
 
     useEffect(() => {
-        return setTimeout(() => {
+                setTimeout(() => {
             setletterClass('text-animate-hover')
         },4000)
     },[])
@@ -24,7 +24,7 @@ const Home = () => {
             <div className="text-zone">
                 <h1>
                     <span className={letterClass}>H</span>
-                    <span className={`${letterClass} _12`}>i</span>
+                    <span className={`${letterClass} _12`}>i,</span>
                 <br/>
                     <span className={`${letterClass} _13`}>I</span>
                     <span className={`${letterClass} _14`}>'m</span>
@@ -41,11 +41,14 @@ const Home = () => {
                 <h2>Google Cloud/Frontend Developer</h2>
                 <Link to='/contact' className='flat-button'>CONTACT ME</Link>
 
-            </div> 
+            </div>
             <Logo />
         </div>
-        
+
     );
+
+
+
 }
 
 

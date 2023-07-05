@@ -1,7 +1,8 @@
 import './index.scss'
 
 const AnimatedLetters =({letterClass, strArray, idx}) => {
-    <span>
+    return (
+        <span>
         {
             strArray.map((char,i)=>(
                 <span key={char+i} className={`${letterClass} _${i + idx}`}>
@@ -10,6 +11,7 @@ const AnimatedLetters =({letterClass, strArray, idx}) => {
             ))
         }
     </span>
+    )
 }
 
 
