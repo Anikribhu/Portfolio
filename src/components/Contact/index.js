@@ -1,12 +1,12 @@
-import Loader from 'react-loaders'
-import './index.scss'
-import AnimatedLetters from '../AnimatedLetters'
-import { useEffect, useRef, useState } from 'react'
-import emailjs from '@emailjs/browser'
+import Loader from 'react-loaders';
+import './index.scss';
+import AnimatedLetters from '../AnimatedLetters';
+import { useEffect, useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [letterClass, setletterClass] = useState('text-animate')
-  const refForm = useRef()
+
   
 
   
@@ -16,21 +16,18 @@ const Contact = () => {
     }, 2500)
   }, [])
 
-  const sendEmail = (e) => {
-    e.preventDefault()
+  const form = useRef();
 
-    emailjs
-      .sendForm('gmail', 'template_fr0954e', refForm.current, 'service_58aoyam')
-      .then(
-        () => {
-          alert('Message successfully sent!')
-          window.location.reload(false)
-        },
-        () => {
-          alert('Failed to send the message, please try again')
-        }
-      )
-  }
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_58aoyam', 'template_fr0954e', form.current, 'jzyfQLfSvKAScB0Fl')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 
 
   return (
@@ -50,7 +47,7 @@ const Contact = () => {
             questions, don't hesitate to contact me using below form either.
           </p>
           <div className="contact-form">
-            <form ref={refForm} onSubmit={sendEmail}>
+            <form ref={form} onSubmit={sendEmail}>
             <ul>
               <li className="half">
                 <input type="text" name="name" placeholder="Name" required />
