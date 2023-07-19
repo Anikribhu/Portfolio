@@ -9,6 +9,7 @@ const Contact = () => {
   const refForm = useRef()
   
 
+  
   useEffect(() => {
     setTimeout(() => {
       setletterClass('text-animate-hover')
