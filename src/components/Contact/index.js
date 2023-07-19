@@ -3,10 +3,12 @@ import './index.scss';
 import AnimatedLetters from '../AnimatedLetters';
 import { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+
 
 const Contact = () => {
   const [letterClass, setletterClass] = useState('text-animate')
-
+  const form = useRef();
   
 
   
@@ -16,7 +18,7 @@ const Contact = () => {
     }, 2500)
   }, [])
 
-  const form = useRef();
+  
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -77,6 +79,25 @@ const Contact = () => {
             </form>
           </div>
         </div>
+        <div className='info-map'>
+          Srestha Sarkar
+          <br />
+          India,
+          <br />
+          SHOPNO Neer
+          G-35/A, Gitanjali Park,Kamdahari,Garia, Bramhapur, Kolkata-700096<br /> 
+          <span>aniksrestha@gmail.com</span>
+        </div>
+        <div className="map-wrap">
+          <MapContainer center={[22.46163, 88.37816]} zoom={30}>
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            <Marker position={[22.46163, 88.37816]}>
+              <Popup>Srestha lives here, come over for a cup of coffee :)</Popup>
+            </Marker>
+          </MapContainer>
+        </div>
+
+
       </div>
       <Loader type="pacman" />
     </>
